@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجري الإلكتروني</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            overflow-x: hidden;
+        }
+
+        .brand-banner {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, #4CAF50, #2E8B57);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 32px;
+            font-weight: bold;
+            z-index: 1000;
+            overflow: hidden;
+            margin-bottom: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .brand-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: glowingText 3s infinite alternate;
+            text-shadow: 0 0 10px #fff, 0 0 20px #4CAF50, 0 0 30px #2E8B57;
+        }
+
+        @keyframes glowingText {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .content {
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 2px solid #4CAF50;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .product-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .product-price, .product-features {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .product.active .product-price,
+        .product.active .product-features {
+            display: block;
+        }
+    </style>
+    <script>
+        function toggleDetails(imageElement) {
+            const productElement = imageElement.closest('.product');
+            productElement.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+    <div class="brand-banner">
+        <div class="brand-text">✨ مرحبًا بكم في " مركز الصفوة " -  لـــــ"بيع  -  صيانة - استبدال! ✨</div>
+    </div>
+
+    <div class="content">
+        <div class="product">
+            <img src="p502.png" alt="لابتوب 1" onclick="toggleDetails(this)">
+            <div class="product-title"> Lenovo p50 </div>
+            <div class="product-price">15000 جنية</div>
+            <div class="product-features">✔️ معالج Intel Core i7-6820HQ<br>✔️ ذاكرة RAM 16GB<br>✔️ تخزين SSD 512GB <BR>✔️  Nvidia Geforce 4G DDR5  </div>
+        </div>
+
+        <div class="product">
+            <img src="840.PNG" alt="كمبيوتر مكتبي 1" onclick="toggleDetails(this)">
+            <div class="product-title">HP 840G5</div>
+            <div class="product-price">10000   جنية </div>
+            <div class="product-features">✔️ معالج Intel Core i5-8550U<br>✔️ ذاكرة RAM 16GB<br>✔️ تخزين SSD 512GB </div>
+        </div>
+
+        <div class="product">
+            <img src="MSI.jpg" alt="لابتوب 2" onclick="toggleDetails(this)">
+            <div class="product-title"> MSI Gaming W1</div>
+            <div class="product-price">30000 جنية</div>
+            <div class="product-features">✔️ معالج Intel Core i7-9750H<br>✔️ ذاكرة RAM 32GB<br>✔️ تخزين SSD 512GB<BR>✔️GTX 1660TI </div>
+        </div>
+
+        <div class="product">
+            <img src="DELL 7470 jpg.jpg" alt="كمبيوتر مكتبي 2" onclick="toggleDetails(this)">
+            <div class="product-title">  Dell E7470</div>
+            <div class="product-price">5000 ريال</div>
+            <div class="product-features">✔️ معالج Intel Core i7-6550U<br>✔️ ذاكرة RAM 16<br>✔️ تخزين  SSD 256GB </div>
+        </div>
+    </div>
+</body>
+</html>
