@@ -85,6 +85,12 @@
         .product.active .product-features {
             display: block;
         }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr; /* عرض منتج واحد لكل صف على الشاشات الصغيرة */
+            }
+        }
     </style>
     <script>
         function toggleDetails(imageElement) {
@@ -103,13 +109,13 @@
             <img src="p502.png" alt="لابتوب 1" onclick="toggleDetails(this)">
             <div class="product-title"> Lenovo p50 </div>
             <div class="product-price">15000 جنية</div>
-            <div class="product-features">✔️ معالج Intel Core i7-6820HQ<br>✔️ ذاكرة RAM 16GB<br>✔️ تخزين SSD 512GB <BR>✔️  Nvidia Geforce 4G DDR5  </div>
+            <div class="product-features">✔️ معالج Intel Core i7-6820HQ<br>✔️ ذاكرة RAM 16GB<br>✔️ تخزين SSD 512GB <BR>✔️ Nvidia Geforce 4G DDR5  </div>
         </div>
 
         <div class="product">
             <img src="840.PNG" alt="كمبيوتر مكتبي 1" onclick="toggleDetails(this)">
             <div class="product-title">HP 840G5</div>
-            <div class="product-price">10000   جنية </div>
+            <div class="product-price">10000 جنية </div>
             <div class="product-features">✔️ معالج Intel Core i5-8550U<br>✔️ ذاكرة RAM 16GB<br>✔️ تخزين SSD 512GB </div>
         </div>
 
@@ -117,14 +123,14 @@
             <img src="MSI.jpg" alt="لابتوب 2" onclick="toggleDetails(this)">
             <div class="product-title"> MSI Gaming W1</div>
             <div class="product-price">30000 جنية</div>
-            <div class="product-features">✔️ معالج Intel Core i7-9750H<br>✔️ ذاكرة RAM 32GB<br>✔️ تخزين SSD 512GB<BR>✔️GTX 1660TI </div>
+            <div class="product-features">✔️ معالج Intel Core i7-9750H<br>✔️ ذاكرة RAM 32GB<br>✔️ تخزين SSD 512GB<BR>✔️ GTX 1660TI </div>
         </div>
 
         <div class="product">
             <img src="DELL 7470 jpg.jpg" alt="كمبيوتر مكتبي 2" onclick="toggleDetails(this)">
             <div class="product-title">  Dell E7470</div>
             <div class="product-price"> 8000 جنية</div>
-            <div class="product-features">✔️ معالج Intel Core i7-6550U<br>✔️ ذاكرة RAM 16<br>✔️ تخزين  SSD 256GB </div>
+            <div class="product-features">✔️ معالج Intel Core i7-6550U<br>✔️ ذاكرة RAM 16<br>✔️ تخزين SSD 256GB </div>
         </div>
     </div>
 </body>
