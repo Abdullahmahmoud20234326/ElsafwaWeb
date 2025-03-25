@@ -19,21 +19,23 @@
             background: linear-gradient(135deg, #4CAF50, #2E8B57);
             color: #fff;
             text-align: center;
-            padding: 20px 0;
-            font-size: 32px;
+            padding: 20px 10px;
+            font-size: 28px;
             font-weight: bold;
             z-index: 1000;
             overflow: hidden;
             margin-bottom: 50px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             border-radius: 0 0 20px 20px;
+            box-sizing: border-box;
         }
 
         .brand-text {
             display: inline-block;
-            white-space: nowrap;
+            white-space: normal;
             animation: glowingText 3s infinite alternate;
             text-shadow: 0 0 10px #fff, 0 0 20px #4CAF50, 0 0 30px #2E8B57;
+            word-break: break-word;
         }
 
         @keyframes glowingText {
@@ -88,7 +90,7 @@
 
         @media (max-width: 768px) {
             .content {
-                grid-template-columns: 1fr; /* عرض منتج واحد لكل صف على الشاشات الصغيرة */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -101,7 +103,7 @@
 </head>
 <body>
     <div class="brand-banner">
-        <div class="brand-text">✨ مرحبًا بكم في " مركز الصفوة " -  لـــــ"بيع  -  صيانة - استبدال! ✨</div>
+        <div class="brand-text">✨ مرحبًا بكم في " مركز الصفوة " - لبيع - صيانة - استبدال! ✨</div>
     </div>
 
     <div class="content">
