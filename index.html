@@ -1,156 +1,257 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMM Store - الصفحة الرئيسية</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; display: flex; }
-        .sidebar { background-color: #2c3e50; color: #fff; width: 250px; height: 100vh; padding: 20px; box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2); }
-        .sidebar h3 { margin-top: 0; }
-        .sidebar ul { list-style: none; padding: 0; }
-        .sidebar li { margin: 10px 0; }
-        .sidebar a { color: #fff; text-decoration: none; transition: color 0.3s; }
-        .sidebar a:hover { color: #00bcd4; }
-        .content { flex-grow: 1; }
-        .navbar { background-color: #1a1a2e; color: #fff; display: flex; justify-content: space-between; padding: 15px 30px; }
-        .navbar h1 { margin: 0; }
-        .navbar ul { list-style: none; display: flex; gap: 20px; padding: 0; margin: 0; }
-        .navbar a { color: #fff; text-decoration: none; font-weight: bold; cursor: pointer; }
-        .login-btn { background-color: #28a745; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s; text-decoration: none; }
-        .login-btn:hover { background-color: #218838; }
-        .hero { background: url('hero-image.jpg') no-repeat center/cover; color: #fff; text-align: center; padding: 100px 20px; }
-        .hero h2 { font-size: 3rem; margin: 0; }
-        .hero p { font-size: 1.2rem; margin: 10px 0; }
-        .product-list { display: flex; gap: 20px; padding: 40px; justify-content: center; flex-wrap: wrap; }
-        .product { background: #fff; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); padding: 20px; width: 250px; text-align: center; }
-        .product img { width: 100%; border-radius: 10px; }
-        .product button { background-color: #0078FF; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
-        .product button:hover { background-color: #005ecb; }
-        .cart-section { background-color: #fff; border: 2px solid #ffc107; padding: 15px; border-radius: 10px; margin: 20px; position: sticky; top: 20px; }
-        .cart-title { font-weight: bold; margin-bottom: 10px; }
-        .cart-items { list-style: none; padding: 0; }
-        footer { background-color: #1a1a2e; color: #fff; text-align: center; padding: 15px 0; margin-top: 30px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; 
+        }
+
+      
+        .navbar {
+            background-color: #1a1a2e;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; 
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .login-btn:hover {
+            background-color: #218838;
+        }
+
+       
+        .sidebar {
+            position: fixed;
+            top: 60px; 
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #00bcd4;
+        }
+
+        .content {
+            margin-left: auto; 
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .product {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h3 {
+            font-size: 16px;
+            margin: 10px 0 5px;
+        }
+
+        .product p {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .product button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .product button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #1a1a2e;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
     </style>
-    <script>
-        let cartItems = [];
-
-        function addToCart(item, price) {
-            cartItems.push({ name: item, price });
-            updateCart();
-        }
-
-        function updateCart() {
-            const cartList = document.getElementById('cart-items');
-            cartList.innerHTML = '';
-            let totalPrice = 0;
-            cartItems.forEach(product => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${product.name} - ${product.price} جنية`;
-                cartList.appendChild(listItem);
-                totalPrice += product.price;
-            });
-            document.getElementById('cart-total').textContent = totalPrice + ' جنية';
-        }
-    </script>
 </head>
 <body>
+
+    <div class="navbar">
+        <h1>AMM Store</h1>
+        <ul>
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#products">المنتجات</a></li>
+            <li><a href="#offers">العروض</a></li>
+            <li><a href="#" onclick="showContactOptions()">تواصل معنا</a></li>
+            <li><a href="تسجيل دخول.html" class="login-btn">تسجيل الدخول</a></li>
+        </ul>
+    </div>
+
     <div class="sidebar">
         <h3>التصنيفات</h3>
         <ul>
-            <li><a href="#">لابــــتـــوب  </a></li>
-            <li><a href="#">أجهزة الكمبيوتر المكتبية</a></li>
-            <li><a href="#"> اكسسوارات</a></li>
+            <li><a href="#">اللاب توب</a></li>
+            <li><a href="#">أجهزة الكمبيوتر</a></li>
+            <li><a href="#">ملحقات</a></li>
+            <li><a href="#">إلكترونيات أخرى</a></li>
         </ul>
     </div>
 
     <div class="content">
-        <header>
-            <nav class="navbar">
-                <h1>AMM Store</h1>
-                <ul>
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#products">المنتجات</a></li>
-                    <li><a href="#offers">العروض</a></li>
-                    <li><a href="#" onclick="showContactOptions()">تواصل معنا</a></li>
-                    <li><a href="تسجيل دخول.html" class="login-btn">تسجيل الدخول</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <div class="cart-section">
-            <div class="cart-title">🛒 سلة التسوق</div>
-            <ul id="cart-items" class="cart-items"></ul>
-            <p>الإجمالي: <span id="cart-total">0 جنيه</span></p>
-        </div>
-
-        <section class="hero">
-            <h2>أحدث المنتجات والعروض المميزة!</h2>
-       
-        </section>
-
         <section id="products" class="product-list">
             <div class="product">
                 <img src="p502.png" alt="لابــــتـــوب">
-                <h3>  Lenovo P50  <BR> PRICE:14500</h3>
-                <p>✔Processor:Core i7-6820HQ<BR>
-                    ✔RAM:16GB DDR4<BR>
-                        ✔Storage:SSD 256GB<BR>
-                            ✔ VGA : Nvidia  4G DDR5 </p>
-                <button onclick="addToCart('  Lenovo P50', 14500)">إضافة إلى السلة</button>
+                <h3>Lenovo P50 <br> السعر: 14500</h3>
+                <p>✔ Core i7-6820HQ<br>✔ 16GB DDR4<br>✔ SSD 256GB<br>✔ Nvidia 4G DDR5</p>
+                <button>إضافة إلى السلة</button>
             </div>
+
             <div class="product">
                 <img src="840.PNG" alt="HP840G5">
-                <h3> HP 840G5 <BR>Price:-9000</h3>
-                <p>✔ Processor:- Intel Core i5-8550U<br>✔  RAM :- 16GB<br>✔ Storage SSD 512GB<BR> ✔  VGA:-Intel HD 620  </p>
-                <button onclick="addToCart('HP840G5', 9000)">إضافة إلى السلة</button>
+                <h3>HP 840G5 <br> السعر: 9000</h3>
+                <p>✔ Core i5-8550U<br>✔ 16GB RAM<br>✔ SSD 512GB<br>✔ Intel HD 620</p>
+                <button>إضافة إلى السلة</button>
             </div>
-             <div class="product">
+
+          <div class="product">
                 <img src="MSI.jpg" alt="MSI GamingW1">
-                <h3> MSI Gaming W1 <BR>Price:-25000</h3>
-                <p>✔ Processor:- Intel Core i7-9550H<br>✔  RAM :- 32GB<br>✔ Storage SSD 512GB <BR> ✔  VGA:- GTX 1660TI  </p>
+                <h3>MSI Gaming W1 <br> السعر: 25000</h3>
+                <p>✔ Core i7-9550H<br>✔ 32GB RAM<br>✔ SSD 512GB<br>✔ GTX 1660TI</p>
                 <button onclick="addToCart('MSI GamingW1', 25000)">إضافة إلى السلة</button>
             </div>
+
             <div class="product">
                 <img src="DELL 7470 jpg.jpg" alt="DELL7470">
-                <h3> DELL E7470 <BR>Price:-7500</h3>
-                <p>✔ Processor:- Intel Core i7-6550U<br>✔  RAM :- 8GB<br>✔ Storage SSD 256GB<BR> ✔  VGA:-Intel HD 520 </p>
+                <h3>DELL E7470 <br> السعر: 7500</h3>
+                <p>✔ Core i7-6550U<br>✔ 8GB RAM<br>✔ SSD 256GB<br>✔ Intel HD 520</p>
                 <button onclick="addToCart('DELL7470', 7500)">إضافة إلى السلة</button>
-
             </div>
+
             <div class="product">
                 <img src="yoga x1.jpg" alt="Lenovo yoga x1">
-                <h3> Lenovo yoga x1 <BR>Price:-7500</h3>
-                <p>✔ Processor:- Intel Core i5-6550U<br>✔  RAM :- 8GB<br>✔ Storage SSD 256GB<BR> ✔  VGA:-Intel HD 520 </p>
-                <button onclick="addToCart('Lenovo yoga x1', 7500)">إضافة إلى السلة</button>
-
+                <h3>Lenovo Yoga X1 <br> السعر: 7500</h3>
+                <p>✔ Core i5-6550U<br>✔ 8GB RAM<br>✔ SSD 256GB<br>✔ Intel HD 520</p>
+                <button onclick="addToCart('Lenovo Yoga X1', 7500)">إضافة إلى السلة</button>
             </div>
+
             <div class="product">
-                <img src="lenovo t480.avif" alt="لابــــتـــوب">
-                <h3> Lenovo thnkpad t480 <BR>Price:-9500</h3>
-                <p>✔ Processor:- Intel Core i5-8550U<br>✔  RAM :- 16GB<br>✔ Storage SSD 256GB<BR> ✔  VGA:-Intel HD 620 </p>
-                <button onclick="addToCart('lenovo t480', 9500)">إضافة إلى السلة</button>
-
+                <img src="lenovo t480.avif" alt="Lenovo t480">
+                <h3>ThinkPad T480 <br> السعر: 9500</h3>
+                <p>✔ Core i5-8550U<br>✔ 16GB RAM<br>✔ SSD 256GB<br>✔ Intel HD 620</p>
+                <button onclick="addToCart('ThinkPad T480', 9500)">إضافة إلى السلة</button>
             </div>
+
             <div class="product">
-                <img src="hp 620g3.jpg" alt="لابــــتـــوب">
-                <h3> HP 620 G3 <BR>Price:-7500</h3>
-                <p>✔ Processor:- Intel Core i5-7550U<br>✔  RAM :- 8GB<br>✔ Storage SSD 256GB<BR> ✔  VGA:-Intel HD 620 </p>
-                <button onclick="addToCart('HP620G3', 7000)">إضافة إلى السلة</button>
-
+                <img src="hp 620g3.jpg" alt="HP 620 G3">
+                <h3>HP 620 G3 <br> السعر: 7500</h3>
+                <p>✔ Core i5-7550U<br>✔ 8GB RAM<br>✔ SSD 256GB<br>✔ Intel HD 620</p>
+                <button onclick="addToCart('HP 620 G3', 7500)">إضافة إلى السلة</button>
             </div>
+        </section>
+    </div>
 
         </section>
-
-        <footer>
-            <p>&copy; 2025 AMM Store - جميع الحقوق محفوظة</p>
-        </footer>
     </div>
-    
+
+    <footer>
+        <p>&copy; 2025 AMM Store - جميع الحقوق محفوظة</p>
+    </footer>
+
 </body>
 </html>
-
-
